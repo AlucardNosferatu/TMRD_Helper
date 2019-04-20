@@ -1,0 +1,113 @@
+﻿//全部是與其他人格相關的內容。
+//切替反應与召喚反應
+
+//自其它人格切換而來——————————————————————————————
+//reference0 對方主人格名稱 
+//reference1 對方的遺言【最後的對話 
+//reference2 前個人格的真名【即全名
+//reference7 對方的外形名稱【AYA只支持到reference6所以无效
+ChangeFromOthers
+{
+	//中文人格列表
+	if reference0 == "藍果醬" 
+	{
+		"\0\s[0]從其他人格切替過來的事件。\w9\w9就算之前的是作者也沒有寫特殊對話。\w9\w9\n\n/
+		\1\s[10]那你現在說的到底是什麽？\w9\w9\n\n/
+		\0\s[0]不要問這種問題。\e"
+	}
+	else
+	{
+		//從特別的人格切換過來的反應。
+		"\0\s[0]（從%(reference0)切換而來）"
+	}
+	--
+	"\1\s[10]\e"
+}
+
+//切換到他人——————————————————————————————
+//reference0 下個人格的主人格名
+//reference1切換模式 manual 手動 automatic 自動 不過這邊全是手動才顯示啦
+//reference2下個人格的真名
+//reference3下個人格所在的路徑
+ChangeToOthers
+{
+	//中文人格列表
+	if reference0 == "藍果醬" 
+	{
+		"\0\s[0]切換到其他人格的對話。\w9\w9/
+		\1\s[10]接下來將要登場的人格是%(reference0)。\w9\w9誒呀，\w9這不是作者嗎。\w9\w9\n我們不打招呼也OK？\w9\w9/
+		\0\s[0]\n\n沒有寫對應的對話。\w9\w9/
+		\1\s[10]\n\n也是。"
+	}
+	else
+	{
+		"\0\s[0]切換到其他人格的對話。\w9\w9/
+		\1\s[10]接下來將要登場的人格是%(reference0)。"
+	}
+	--
+	"\w9\w9\w9\e"
+}
+//召喚別人完畢。——————————————————————————————
+//reference0 被呼叫人格的主人格名。
+//reference1 被呼叫人格的啟動對話。
+//reference2 被呼叫人格的真名
+//reference7 被呼叫人格啟動時使用的外形【AYA只支持到reference6所以无效
+OnGhostCallComplete
+{
+	if reference0 == "藍果醬"
+	{
+	"\0\s[0]呼叫其他人格的對話。\w9\w9/
+	\1\s[10]被呼叫的人格是藍果醬。\w9\w9我們不需要打招呼嗎？\w9\w9/
+	\0\s[0]\n\n反正也沒有寫對應的對話。\e"
+	}
+	else
+	{
+	"\0\s[0]呼叫其他人格的對話。\w9\w9/
+	\1\s[10]被呼叫的人格是%(reference0)。\e"
+	}
+}
+//被召喚了的動作。——————————————————————————————
+//reference0 呼叫者的主人格名
+//reference1 呼叫者的OnGhostCalling事件腳本或原始呼叫腳本。
+//reference2呼叫者的人格真名
+//reference7 呼叫者的外形。【AYA只支持到reference6所以无效
+OnGhostCalled
+{
+	GhostLastBoot		= CurrentTime; 
+	CurrentTime			= GETSECCOUNT();
+	lastTalk			= ""	//避免剛啓動就出0
+	CHAIN.IDName			=""
+	--
+	if reference0 == "藍果醬" 
+	{
+	"\0\s[0]被其他人格呼叫到桌面的對話。\w9\w9/
+	\1\s[10]呼叫我們的是%(reference0)。\w9\w9這不是作者嗎。\w9\w9/
+	\0\s[0]沒有寫對應的對話。"
+	}
+	else
+	{
+	"\0\s[0]被其他人格呼叫到桌面的對話。\w9\w9/
+	\1\s[10]呼叫我們的是%(reference0)。\e"
+	}
+}
+//其它人格關閉。——————————————————————————————
+//reference0被關閉人格的主人格名
+//reference1被關閉人格的最後對話
+//reference2被關閉人格的真名。
+OnOtherGhostClosed
+{
+
+}
+//其它人格切替完成。——————————————————————————————
+//reference0 切替前人格的主人格名
+//reference1 切替后人格的主人格名
+//reference2切替前人格的OnGhostChanging腳本
+//reference3切替后人格的OnGhostChanged/OnBoot腳本
+//reference4切替前人格的真名
+//reference5切替后人格的真名
+//reference14切替后人格的外形【AYA只支持到reference6所以无效
+//reference15切替后人格的外形【AYA只支持到reference6所以无效
+OnOtherGhostChanged
+{
+
+}

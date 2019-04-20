@@ -1,0 +1,408 @@
+﻿//**** 主選單的展開 ***********************************************************************
+//---- 主選單的展開 ---------------------------------------------------------------
+OpenMenu
+{
+	"\0\s[0]開啟人格菜單。\w9\w9\n\n/
+	\1\s[10]沒有寫對話，\w9結果還是寫了菜單？\w9\w9/
+	\0\s[0]從其他人格那裡複製來的。"
+
+	"\0\s[0]開啟人格菜單。"
+
+	"\0\s[0]開啟人格菜單。"
+
+	"\0\s[0]人格菜單不存在。\w9\w9/
+	\1\s[10]不要說那麼明顯的謊話。"
+
+	--
+	theMenu
+}
+
+Choice.ReturnMenu
+{
+	"\0\s[0]返回。\w9\w9/
+	\1\s[10]有沒有點錯都一樣不是嗎。\w9\w9/
+	\0\s[0]\n\n不要問這種問題。"
+	"\0\s[0]返回菜單。\w9\w9/
+	\1\s[10]點錯了嗎。"
+	"\0\s[0]返回菜單。"
+	--
+	theMenu
+}
+
+theMenu
+{
+	"\0\n\n\_q"
+	--
+	"\_q\![*]\q[欢迎,OnHelloWorld]\n/
+	\![*]\q[聊天,AITALK]\_l[90,-]\![*]\q[剛才的對話,TellLast]\n/
+	\![*]\q[溝通,COMMUNICATEOPEN]\_l[90,-]\![*]\q[自我介紹,aboutself]\n/
+	\![*]\q[設定,Setting]\_l[90,-]\![*]\q[占卜,zhanbu]\n"
+	--
+	"\n\![*]\q[取消,CANCEL]\e"
+}
+
+
+//**** 選單項目選擇 ***************************************************************************
+//---- OnChoiceSelect事件 ---------------------------------------------------------------
+//reference0：選擇項目的ID
+//這裡使用EVAL幫助。
+//\q[選項的字,選項的ID]，這裡的ID如果是On開頭，選擇后直接發生這個On開頭為名的事件
+//不是On開頭的清苦下，發生【Choice.選項的ID】 為名的事件。
+OnChoiceSelect
+{
+   EVAL("Choice.%(reference0)")
+}
+
+//---- 取消
+Choice.CANCEL
+{
+	"\0\s[0]選擇取消。\e"
+	"\0\s[0]選擇取消。\w9\w9\n\n/
+	\1\s[10]這時候不說話也行吧。\e"
+}
+
+//設定什麽的最討厭了QAQ-------------------------------------
+Choice.Setting
+{
+	"\0\s[0]設定菜單。"
+	"\0\s[0]設定。"
+	--
+	Settinglist
+}
+
+Settinglist
+{
+	"\n\n/
+	\![*]\q[用戶資料變更,Userpage]\_l[90,-]\![*]\q[對話頻率變更,TALKINTERVAL]\n/
+	\![*]\q[繁簡轉換,Changefj]\_l[90,-]\![*]\q[最前排開關,topper]\n/
+	\![*]\q[時報開關,Changesb]\_l[90,-]\![*]\q[快捷鍵說明,TypeReact]\n/
+	\![*]\q[左右翻轉,Mirrors]\n/
+	\n/
+	\![*]\q[返回,ReturnMenu]\_l[90,-]\![*]\q[取消,CANCEL]\e"
+}
+//————選單選項——————————————————————————————
+Choice.AITALK
+{
+	OnAiTalk
+}
+
+Choice.COMMUNICATEOPEN
+{
+	//---- 開啟溝通輸入欄
+	"\0\s[0]開啟溝通輸入欄。\w9\w9\n\n/
+	\1\s[10]事實上沒有任何特別的溝通反應。\w9\w9\n\n/
+	\0\s[0]這是菜單最常見的選項。\![open,communicatebox]\e"
+	"\0\s[0]開啟溝通輸入欄。\![open,communicatebox]\e"
+
+}
+
+//---- 對話頻率的調整
+Choice.TALKINTERVAL
+{
+	"\0\s[0]對話頻率調整。\n\n/
+	\![*]\q[健談（1分鐘間隔）,TALKMAX]\n/
+	\![*]\q[普通（5分鐘間隔）,TALKNORMAL]\n/
+	\![*]\q[安静（10分鐘間隔）,TALKPOOR]\n/
+	\![*]\q[沉默（0分鐘間隔）,TALKNONE]\e"
+}
+
+Choice.TALKMAX
+{
+	//---- 密集的對話(1分間隔)
+	aitalkinterval = 60
+	"\0\s[0]將對話頻率調整為1分鐘間隔。\w9\w9\n\n/
+	\1\s[10]沒有對話的話，\w9就算調整到那麼頻繁也沒有意義。\w9\w9\n\n/
+	\0\s[0]這是功能。\e"
+
+}
+Choice.TALKNORMAL
+{
+	//---- 一般速度的對話(5分間隔)
+	aitalkinterval = 300
+	"\0\s[0]將對話頻率調整為5分鐘間隔。\w9\w9\n\n/
+	\1\s[10]這是默認的數值，\w9300秒。\e"
+}
+Choice.TALKPOOR
+{
+	//---- 安靜的對話(10分間隔)
+	aitalkinterval = 600
+	"\0\s[0]將對話頻率調整為10分鐘間隔。\w9\w9\n\n/
+	\1\s[10]600秒。\e"
+}
+Choice.TALKNONE
+{
+	//---- 不講話
+	aitalkinterval = 0
+	"\0\s[0]嗚。\w9\w9\n\n/
+	\1\s[10]既然沒有對話，那麼將隨機對話關閉也沒有什麽吧。\w9\w9\n\n/
+	\0\s[0]一般人格都會稍微表現出不高興的樣子。\w9\w9\n\n/
+	\1\s[10]我們算一般的完整人格嗎？\w9\w9\n\n/
+	\0\s[0]不要問這種問題。\e"
+}
+
+//最前排指定
+Choice.topper
+{
+	"\0\s[0]現在的狀態是 "
+	--
+	if topped !=1
+	{"普通"}
+	else
+	{"總在最前"}
+	--
+	" 。\n\n\![*]\q[普通,toppershut]\n\![*]\q[總在最前,topperopen]\e"
+}
+Choice.toppershut
+{
+	topped = 0
+	"\0\s[0]設定為普通。\![set,windowstate,!stayontop]\e"
+}
+Choice.topperopen
+{
+	topped = 1
+	"\0\s[0]設定為總在最前。\![set,windowstate,stayontop]\e"
+}
+
+
+
+Choice.Changefj
+{
+	"\0\s[0]現在的語言是"
+	--
+	if fjswitch == 0
+	{
+		"繁體"
+	}
+	else
+	{
+		"簡體"
+	}
+	--
+	"。\n\n"
+	--
+	if fjswitch == 0
+	{
+		"\![*]\q[轉換,changej]\n"
+	}
+	else
+	{
+		"\![*]\q[轉換,changef]\n"
+	}
+	--
+	"\![*]\q[返回,ReturnMenu]\e"
+}
+
+Choice.changej
+{
+	fjswitch = 1
+	"\0\s[0]轉換為簡體。\w9\w9\n\n/
+	\1\s[10]沒有對話的話，\w9是不是繁體沒有區別。\w9\w9\n\n/
+	\0\s[0]還有菜單在。\e"
+}
+
+Choice.changef
+{
+	fjswitch = 0
+	"\0\s[0]轉換為繁體。\w9\w9\n\n/
+	\1\s[10]沒有對話的話，\w9是不是簡體沒有區別。\w9\w9\n\n/
+	\0\s[0]還有菜單在。\e"
+}
+
+//---- 選單選擇逾時 ---------------------------------------------------------------------
+OnChoiceTimeout
+{
+	"\0\s[0]選擇超時事件。\w9\w9/
+	\1\s[10]有選項但沒進行選擇，\w9放置一會就回出現的事件。\w9\w9這說穿了其實就是被無視了吧。\w9\w9/
+	\0\s[0]不要問這種問題。\e"
+	"\0\s[0]選擇超時事件。\e"
+}
+
+Choice.Changeusername
+{
+	"\0\s[0]用戶名更改輸入框開啟事件。\![open,inputbox,teachusername,-1]\e"
+}
+
+Choice.tellbirthday
+{
+	"\0\s[0]用戶生日更改輸入框開啟事件。\![open,dateinput,Ontellbirthdayer,-1]"
+}
+//---- OnUserInput事件 ------------------------------------------------------------------
+//reference0：輸入框的ID
+//reference1：輸入的內容
+//在EVAL的幫助下，所有輸入事件指向Input.ID為名的事件，reference1的值是輸入的內容。
+//如果輸入框的ID為On開頭，那麼直接指向這個On開頭的ID為名字的事件，reference0的值為輸入的內容。
+//如\![open,inputbox,forexample,-1]指向Input.forexample，reference1的值為輸入的值。
+//但是\![open,inputbox,Onforexample,-1]指向的是Onforexample，reference0的值為輸入的值。
+//
+OnUserInput
+{   EVAL("Input.%(reference0)") }
+
+
+Input.teachusername
+{
+	if reference1 ==  "%(username)"
+	{
+		"\0\s[0]修改用戶名事件，\w9輸入的用戶名和之前的一致。\w9\w9/
+		\1\s[10]說穿了就是沒有要改的意思。\e"
+	}
+	elseif reference1 == ""
+	{
+		"\0\s[0]修改用戶名事件，\w9輸入的為空。\w9\w9/
+		\1\s[10]說穿了就是沒有要改的意思吧。\e"
+	}
+	else
+	{
+		username = "%(reference1)"
+		"\0\s[0]修改用戶名事件。\w9\w9/
+		\1\s[10]用戶名被修改為%(username)。\e"
+	}
+}		
+
+
+//---------輸入生日----------
+Ontellbirthdayer
+{
+	userbirthday = SPLIT(reference0,","); //以「,」作為區隔切成三個陣列元素（感謝時原砂さん）
+	"\0\s[0]輸入用戶生日事件。\w9\w9/
+	\1\s[10]輸入的生日為%(userbirthday[0])年%(userbirthday[1])月%(userbirthday[2])日。\e"
+}
+
+Choice.Changesb
+{
+	if sbswitch == 0
+	{
+		"\0\s[0]現在的設定是不整點報時。\n\n/
+		\![*]\q[時報打開,sbopen]\n/
+		\![*]\q[返回菜單,ReturnMenu]\e"
+	}
+	else
+	{
+		"\0\s[0]現在的設定是整點報時。\n\n/
+		\![*]\q[時報關閉,sbshut]\n/
+		\![*]\q[返回菜單,ReturnMenu]\e"
+	}
+}
+Choice.sbopen
+{
+	sbswitch = 1
+	"\0\s[0]開啟整點報時。\e"
+}
+Choice.sbshut
+{
+	sbswitch = 0
+"\0\s[0]關閉整點報時。\e"
+}
+
+//用戶資料
+Choice.Userpage
+{
+	"\0\s[0]現在的用戶資料。\n\n/
+	\_q\![*]用戶名：\q[%(username),Changeusername]\n/
+	\![*]用戶生日：\q[%(userbirthday[0])年%(userbirthday[1])月%(userbirthday[2])日,tellbirthday]\n"
+	--
+	"\n\![*]\q[取消,CANCEL]\_q\e"
+}
+
+//自我介紹
+Choice.aboutself
+{
+	"\0\s[0]自我介紹菜單。\w9\w9/
+	\1\s[10]其實裏面什麽都沒有寫。/
+	\0\s[0]\n\n/
+	\![*]\q[關於主人格,about0]\n/
+	\![*]\q[關於使魔,about1]\n/
+	\n\![*]\q[取消,CANCEL]\e"
+}
+
+Choice.about0
+{
+	"\0\s[0]主人格相關內容。\w9\w9/
+	\1\s[10]因為沒有寫，\w9所以就當做已經說過了。\w9\w9\n/
+	話說回來，將名字寫在胸口的人有什麽好介紹的。\w9\w9/
+	\0\s[0]\n\n總比將名字寫在眼睛上的好。\w9\w9/
+	\1\s[10]……\e"
+	"\0\s[0]主人格相關內容。\w9\w9/
+	\1\s[10]因為沒有寫，\w9所以就當做已經說過了。\e"
+	"\0\s[0]主人格相關內容。\w9\w9/
+	\1\s[10]因為沒有寫，\w9所以就當做已經說過了。\e"
+}
+
+Choice.about1
+{
+	"\1\s[10]使魔相關內容。\w9\w9/
+	\n因為沒有寫，\w9所以就當做已經說過了。\e"
+}
+
+Choice.TypeReact
+{
+	"\0\s[0]快捷鍵說明。\w9\w9/
+	\1\s[10]只能在人格被激活時使用。\w9\w9/
+	\0\s[0]\n\n/
+	F1 Readme文檔\n/
+	C 開啟溝通\n/
+	M 開啟菜單\n/
+	R 人格使用率\n/
+	S 外表清單\n/
+	\_q\e"
+}
+
+Choice.TellLast
+{
+	"\0\s[0]選擇了“剛才的對話”事件。\w9\w9\n\n"
+	--
+	if lastTalk == ""
+	{
+	"\1\s[10]但是因為剛才什麽都沒有說，\w9所以這個事件沒有內容。\e"
+	}
+	else
+	{
+	"\1\s[10]重複剛才說過的內容。\w9\w9\n\n"
+	--
+	lastTalk
+	}
+}
+
+Choice.Mirrors
+{
+	"\0\s[0]左右翻轉選項。\n\n/
+	\![*]\q[主人格左右翻轉,MirrorA]\n/
+	\![*]\q[主人格默認原狀,MirrorB]\n/
+	\![*]\q[使魔端左右翻轉,MirrorC]\n/
+	\![*]\q[使魔端默認原狀,MirrorD]\n/
+	\e"
+}
+
+Choice.MirrorA
+{
+	"\0\s[0]\![set,scaling,-100,100]/
+	主人格左右翻轉。\w9\w9/
+	\1\s[10]被翻轉之後胸口的字也不對了。\w9\w9就沒有別的辦法了嗎。\w9\w9/
+	\0\s[0]\n\n不要問這種問題。\e"
+}
+
+Choice.MirrorB
+{
+	"\0\s[0]\![set,scaling,100,100]/
+	主人格默認原狀。\e"
+}
+
+Choice.MirrorC
+{
+	"\1\s[10]\![set,scaling,-100,100]/
+	使魔端左右翻轉。\w9\w9/
+	\0\s[0]有區別嗎。\e"
+}
+
+Choice.MirrorD
+{
+	"\1\s[10]\![set,scaling,100,100]/
+	使魔端默認原狀。\e"
+}
+
+//占卜-其實沒寫。
+Choice.zhanbu
+{
+	"\0\s[0]這個功能作者沒有寫。\w9\w9/
+	\1\s[10]已經懶到這個程度了。\w9\w9事實上只要在這裡寫那麼幾個結果對話來隨機就好了吧，\w9故意偷懶到這個程度到底是為何呢。\w9\w9/
+	\0\s[0]\n\n不要問這種問題。\e"
+}

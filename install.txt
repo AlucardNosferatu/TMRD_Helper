@@ -1,0 +1,8 @@
+﻿//編碼
+Charset,UTF-8
+//安裝包種類
+type,ghost
+//人格名稱
+name,TMRD_Helper
+//文件夾名稱
+directory,TMRD_Helper

@@ -1,0 +1,27 @@
+﻿//菜單選項註釋。
+On_balloon_tooltip {
+　if ISFUNC("BalloonTooltip_%(reference[0])") {
+　EVAL("BalloonTooltip_%(reference[0])")
+}
+}
+// 「BalloonTooltip_[選択肢ラベル]」にツールチップで表示させるテキストを記述
+//很不幸，繁體和簡體狀態下如果選項內容不同，要寫兩遍
+BalloonTooltip_聊天 { "可以說點什麽嗎？" }
+BalloonTooltip_溝通 { "請不要為難一個偽AI！" }
+BalloonTooltip_沟通 { "请不要为难一个伪AI！" }
+BalloonTooltip_自我介紹 { "和我談談關於你的事情吧。" }
+BalloonTooltip_自我介绍 { "和我谈谈关于你的事情吧。" }
+BalloonTooltip_設定 { "更改人格相關設定。" }
+BalloonTooltip_设定 { "更改人格的相关设定。" }
+BalloonTooltip_取消 { "不好意思點錯了~" }
+BalloonTooltip_對話頻率變更 { "隔多久說一次話呢？" }
+BalloonTooltip_对话频率变更 { "隔多久说一次话呢？" }
+BalloonTooltip_時報開關 { "是否開啟整點報時？" }
+BalloonTooltip_时报开关 { "是否开启整点报时？" }
+BalloonTooltip_最前排開關 { "要不要顯示在最上層呢？" }
+BalloonTooltip_最前排开关 { "要不要显示在最上层呢？" }
+BalloonTooltip_返回 { "回到原來的Menu。" }
+BalloonTooltip_繁简转换 { "將對話內容轉換為繁體。" }
+BalloonTooltip_繁簡轉換 { "将对话内容转换为简体。" }
+BalloonTooltip_用戶資料變更 { "修改用戶稱謂和生日。" }
+BalloonTooltip_用户资料变更 { "修改用户称谓和生日。" }

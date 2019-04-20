@@ -1,0 +1,32 @@
+﻿///////// 文　ゴーストテンプレート
+///////// yaya.txt (設定ファイル)
+///////// original written by umeici.
+///////// change by ukiya.
+///////// 中文化 by 時原砂
+
+charset, UTF-8
+
+//---- 以下為系統辭書 -------------------------------------------------------------------------
+dic, yaya_shiori3.dic			// YAYA: 辭書制御辭書
+dic, yaya_compatible.dic		// YAYA: AYA過去互換用辭書
+
+//---- 以下為紺野芽芽美的範本內容
+dic, Nothing_word.dic			// 單語辭書
+
+dic, Nothing_aitalk.dic			// AI對話辭書
+dic, Nothing_bootend.dic		// 起動/終了/切替 對話辭書
+dic, Nothing_communicate.dic		// 溝通辭書
+dic, Nothing_menu.dic			// 選單處理辭書
+dic, Nothing_react.dic			// 使用者事件反應辭書
+dic, Nothing_string.dic			// 右鍵選單辭書
+
+dic, Nothing_etc.dic			// 其他核心事件辭書
+
+dic, Nothing_tooltip.dic		//工具註釋
+dic, Nothing_talks.dic			//對話相關2
+dic, Nothing_change.dic			//切替反应相关
+
+dic, MyProgram.dic			//Scrooge练习用辞书文件
+//---- 實行日誌 -------------------------------------------------------------------------
+log, ayame.log			// 實行LOG記錄
+iolog, off

@@ -1,0 +1,11 @@
+descript
+{
+version,1
+}
+
+surface0,1
+{
+//Ó|ÃþÅÐ¶¨
+collision0,71,217,125,264,ke
+collision1,65,2,104,29,mao
+}

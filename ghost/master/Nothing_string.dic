@@ -1,0 +1,164 @@
+﻿//**** 右鍵選單項目 *******************************************************************************
+//---- 使用者名稱 -----------------------------------------------------------------------
+On_username
+{
+	username
+}
+
+//---- 入口網站的選單按鍵名稱 -----------------------------------------------------------
+On_portalrootbutton.caption
+{
+	"相關網站"
+}
+
+//---- 入口網站的清單 -------------------------------------------------------------------
+On_sakura.portalsites
+{
+	"/
+	頁面未命名%(CHR(1))http://www.shunlan.de/ukagaka/nothing%(CHR(1))%(CHR(2))%(CHR(2))/
+	果然很同%(CHR(1))http://www.shunlan.de/%(CHR(1))%(CHR(2))%(CHR(2))/
+	-%(CHR(1))%(CHR(1))%(CHR(2))%(CHR(2))/
+	種子彙聚地（藍果醬配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/bluefruit%(CHR(1))%(CHR(2))%(CHR(2))/
+	暗黑協會支部A（路過的惡役樣 配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/akuyaku%(CHR(1))%(CHR(2))%(CHR(2))/
+	星夜的紙板箱（杏喵的配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/anzumew%(CHR(1))%(CHR(2))%(CHR(2))/
+	華間霧 配布頁面%(CHR(1))http://www.shunlan.de/ukagaka/kamakiri%(CHR(1))%(CHR(2))%(CHR(2))/
+	被遺忘的書架（BrownBook 配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/brownbook%(CHR(1))(CHR(2))%(CHR(2))/
+	黑白灰的房間（頭痛的作者樣 配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/kurohakuhaiko%(CHR(1))%(CHR(2))%(CHR(2))/
+	黑夜的舞踏會（Continued Night）%(CHR(1))http://www.shunlan.de/ukagaka/continued-night%(CHR(1))%(CHR(2))%(CHR(2))/
+	『香取 -Katori-』配布頁面%(CHR(1))http://www.shunlan.de/ukagaka/katori%(CHR(1))%(CHR(2))%(CHR(2))/
+	禮物盒子 配布頁面%(CHR(1))http://www.shunlan.de/ukagaka/presentbox%(CHR(1))%(CHR(2))%(CHR(2))/
+	見習護士雅迪拉 配布頁面%(CHR(1))http://www.shunlan.de/ukagaka/yadira%(CHR(1))%(CHR(2))%(CHR(2))/
+	愁楚河碼頭（科薩莎莉雅-Xacharia- 配布頁面）%(CHR(1))http://www.shunlan.de/ukagaka/xacharia%(CHR(1))%(CHR(2))%(CHR(2))/
+	Classmate-誑 配布頁面%(CHR(1))http://www.shunlan.de/ukagaka/kuang%(CHR(1))%(CHR(2))%(CHR(2))/
+	-%(CHR(1))%(CHR(1))%(CHR(2))%(CHR(2))/
+	果然很同Free Shell配布页面%(CHR(1))http://www.shunlan.de/ukagaka/free-shell%(CHR(1))%(CHR(2))%(CHR(2))/
+	-%(CHR(1))%(CHR(1))%(CHR(2))%(CHR(2))/
+	FSW『The ones wiz U』宣言頁%(CHR(1))http://www.shunlan.de/fsw/the-ones-wiz-u%(CHR(1))%(CHR(2))%(CHR(2))/
+	FSW『創作假想』宣言頁%(CHR(1))http://www.shunlan.de/fsw/creation-imagination%(CHR(1))%(CHR(2))%(CHR(2))/
+	FSW『All After All』宣言頁%(CHR(1))http://www.shunlan.de/fsw/aaa%(CHR(1))%(CHR(2))%(CHR(2))/
+	"
+}
+
+//---- 本体側推薦網站的選單按鍵名稱 -----------------------------------------------------
+On_recommendrootbutton.caption
+{
+	"推薦網站"
+}
+
+//---- 本体側推薦網站的清單 -------------------------------------------------------------
+On_sakura.recommendsites
+{
+	"/
+	中文偽春菜後援會%(CHR(1))http://cuc2.dyndns.org/index.php%(CHR(1))%(CHR(2))%(CHR(2))/
+	百度偽春菜吧%(CHR(1))http://tieba.baidu.com/f?kw=%CE%B1%B4%BA%B2%CB%(CHR(1))%(CHR(2))%(CHR(2))/
+	-%(CHR(1))%(CHR(1))%(CHR(2))%(CHR(2))/
+	伺かwiki%(CHR(1))http://www.towano.net/ua-ks/index.php?FrontPage%(CHR(1))%(CHR(2))%(CHR(2))/
+	SSP BUGTRAQ%(CHR(1))http://ssp.shillest.net/%(CHR(1))%(CHR(2))%(CHR(2))/
+	文屋%(CHR(1))http://emily.shillest.net/ayaya/%(CHR(1))%(CHR(2))%(CHR(2))/
+	駄でべろぱの小ネタWiki%(CHR(1))http://emily.shillest.net/specwiki/index.php?FrontPage%(CHR(1))%(CHR(2))%(CHR(2))/
+	整備班%(CHR(1))http://ms.shillest.net/%(CHR(1))%(CHR(2))%(CHR(2))/
+	-%(CHR(1))%(CHR(1))%(CHR(2))%(CHR(2))/
+	Wiz★の防備録%(CHR(1))http://d.hatena.ne.jp/wiz-stargazer/%(CHR(1))%(CHR(2))%(CHR(2))/
+	何かゴーストセンター%(CHR(1))http://www.aqrs.jp/ngc/%(CHR(1))%(CHR(2))%(CHR(2))/
+	GHOST TOWN%(CHR(1))http://ghosttown.mikage.jp/%(CHR(1))%(CHR(2))%(CHR(2))/
+	BALLOON TOWN%(CHR(1))http://ghosttown.mikage.jp/balloontown.html%(CHR(1))%(CHR(2))%(CHR(2))/
+	Encyclopedia of 伺か%(CHR(1))http://dic.sstp.jp/%(CHR(1))%(CHR(2))%(CHR(2))/
+	"
+}
+
+//---- kero側推薦網站的選單按鍵名稱 -----------------------------------------------------
+On_kero.recommendbuttoncaption
+{
+	"相關網站"
+}
+
+//---- kero側推薦網站的清單 -------------------------------------------------------------
+On_kero.recommendsites
+{
+	"/
+	果然很同%(CHR(1))http://www.shunlan.de/%(CHR(1))%(CHR(2))%(CHR(2))/
+	百度偽春菜吧%(CHR(1))http://tieba.baidu.com/f?kw=%CE%B1%B4%BA%B2%CB%(CHR(1))%(CHR(2))%(CHR(2))/
+	瞬祭藍果的新浪微博%(CHR(1))http://weibo.com/shunjilanguo%(CHR(1))%(CHR(2))%(CHR(2))/
+	"
+}
+
+//---- 線上更新的選單按鍵名稱 -----------------------------------------------------------
+On_updatebutton.caption
+{
+	"線上更新"
+}
+
+//---- readme的選單按鍵名稱 -------------------------------------------------------------
+On_readmebutton.caption
+{
+	"read me..."
+}
+
+//---- 消滅指示的選單按鍵名稱 -----------------------------------------------------------
+On_vanishbutton.caption
+{
+	"打包遣回"
+}
+
+//---- 消滅指示按鍵的顯示與否 -----------------------------------------------------------
+On_vanishbutton.visible
+{
+	//---- "0"是不顯示、其他是顯示
+	"1"
+}
+
+//下面的內容如果看不懂，請不要輕易改變
+//---- 取得其他起動中的人格名稱 ---------------------------------------------------------
+On_otherghostname
+{
+	// 作成現在起動中人格的清單
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+
+//---- SHIORI 相關情報 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION);
+}
+
+On_craftman
+{
+	"umeici";
+}
+
+On_craftmanw
+{
+	"梅市";
+}
+
+On_name
+{
+	"AYA";
+}
+
+//---- Owned SSTP 用 uniqueid 取得 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+//---- hwnd 取得 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}
+
