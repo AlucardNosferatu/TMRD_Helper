@@ -34,11 +34,33 @@ theMenu
 	"\_q\![*]\q[功能测试,OnHelloWorld]\n/
 	\![*]\q[助手吐槽,OnAiTalk]\_l[90,-]\![*]\q[解析提示,OnJumpTest]\n/
 	\![*]\q[助手陪聊,MyFunction]\_l[90,-]\![*]\q[检查时程,OnScheduleCheck]\n/
-	\![*]\q[参数设置,Setting]\_l[90,-]\![*]\q[运势占卜,zhanbu]\n"
+	\![*]\q[参数设置,Setting]\_l[90,-]\![*]\q[快速访问,OnLinker]\n"
 	--
 	"\n\![*]\q[取消,CANCEL]\e"
 }
+OnLinker//快速访问
+{
 
+	"\0\n/
+	\![*]\q[常用网址,OnURL]\_l[90,-]\![*]\q[常用路径,OnSharedDisk]\n"
+	--
+	"\n\![*]\q[取消,ReturnMenu]\e"
+
+}
+OnURL
+{
+
+}
+OnSharedDisk
+{
+	
+	"\0\n/
+	\![*]\q[电子研发,OnAiTalk]\_l[90,-]\![*]\q[临时堆放,OnJumpTest]\n/
+	\![*]\q[原理图纸,MyFunction]\_l[90,-]\![*]\q[芯片资料,OnScheduleCheck]\n/
+	\![*]\q[器件规格,Setting]\_l[90,-]\![*]\q[周报归档,Linker]\n"
+	--
+	"\n\![*]\q[返回,OnLinker]\e"
+}
 
 //**** 選單項目選擇 ***************************************************************************
 //---- OnChoiceSelect事件 ---------------------------------------------------------------
