@@ -256,7 +256,8 @@ GetTimeSlot3 : sequential
 		//"\0\s[0]%(schedule_month[i])\n%(schedule_day[i])\n%(schedule_event[i])\e"
         	if month == schedule_month[i] && day == schedule_day[i]
 		{
-			_timeslot=schedule_event[i];
+			schedule_event[i]
+			return
 		}
         }
 	_timeslot;

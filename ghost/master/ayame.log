@@ -1,5 +1,5 @@
 // 文　リクエストログ
-// load 時刻 : 2019/04/20 22:17:59
+// load 時刻 : 2019/04/20 22:40:17
 
 // 辞書ファイル読み込み
 // - E:\LostXmas\cssp\ghost\TMRD_Helper\ghost\master\yaya_shiori3.dic
@@ -23,9 +23,4 @@
 
 // 変数値の復元 - E:\LostXmas\cssp\ghost\TMRD_Helper\ghost\master\yaya_variable.cfg
 ...完了.
-
-// 変数値の保存 - E:\LostXmas\cssp\ghost\TMRD_Helper\ghost\master\yaya_variable.cfg
-...完了.
-
-// unload 時刻 : 2019/04/20 22:18:06
 

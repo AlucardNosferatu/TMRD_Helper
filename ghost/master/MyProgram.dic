@@ -2,9 +2,9 @@
 {
 _txt="\0\s[5]\b[0]\![set,balloontimeout,0]"
 _txt+="Hello World!\n";
-_txt+="\![*]\q[心理测试,OnJumpTest]\n";
-_txt+="\![*]\q[在线陪聊,MyFunction]\n";
-_txt+="\![*]\q[检查时程,OnScheduleCheck]\n";
+//_txt+="\![*]\q[心理测试,OnJumpTest]\n";
+//_txt+="\![*]\q[在线陪聊,MyFunction]\n";
+//_txt+="\![*]\q[检查时程,OnScheduleCheck]\n";
 _txt;
 }
 
@@ -41,9 +41,7 @@ _reply_index=STRSTR(_echo,":100000,",0)+16;
 
 _reply=SUBSTR(_echo,_reply_index,STRLEN(_echo)-_reply_index-2);
 --
-
-"\0\s[6]%(_reply_index)\n/
-\0\s[6]%(_reply)\e"
+"\0\s[6]%(_reply)\e"
 }
 
 
