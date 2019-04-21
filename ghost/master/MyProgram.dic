@@ -51,6 +51,17 @@ OnJumpTest
 //1.0       \0\s[40]\b[2]\![set,choicetimeout,0]的效果是主人格作用域采用40号surface大对话框选项超时禁用,当对话框有选项时，禁用超时会使对话框处于静态页面，不会被人格主动对话打断
 }
 
+OnJumpTest2
+{
+"\0\s[40]\![set,choicetimeout,0]1.当他温柔地看着你，你会说：\n/
+\q[A.你的眼睛大又圆,Onjumptest7_2]\n/
+\q[B.你真好,Onjumptest7_3]\n/
+\q[C.你踩到我的脚了,Onjumptest7_3]\n/
+\q[D.你想什么呢？,Onjumptest7_2]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,Ontestmenu] \q[◇结束,OnOpenMenu,1]\n/
+"
+}
+
 Onjumptest7
 {
 "\0\s[40]\![set,choicetimeout,0]你一生会真心爱几个人\n1.当他温柔地看着你，你会说：\n/

@@ -24,7 +24,7 @@ theMenu
 	"\0\n\n\_q"
 	--
 	"\_q\![*]\q[功能测试,OnHelloWorld]\n/
-	\![*]\q[常用资料,MostlyRefered]\_l[90,-]\![*]\q[解析提示,OnJumpTest]\n/
+	\![*]\q[常用资料,MostlyRefered]\_l[90,-]\![*]\q[解析提示,OnJumpTest2]\n/
 	\![*]\q[助手陪聊,MyFunction]\_l[90,-]\![*]\q[检查时程,OnScheduleCheck]\n/
 	\![*]\q[参数设置,Setting]\_l[90,-]\![*]\q[快速访问,OnLinker]\n"
 	--
