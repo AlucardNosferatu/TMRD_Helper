@@ -33,17 +33,26 @@ theMenu
 Choice.MostlyRefered
 {
 	"\0\n/
-	\![*]\q[串口指令,CommandList]\_l[90,-]\![*]\q[分显图例,PatternList]\n"
+	\![*]\q[串口指令,CommandList]\_l[90,-]\![*]\q[分显图例,PatternList]\n/
+	\![*]\q[治具电路,PlatformSch]\_l[90,-]\![*]\q[电源电路,PowerBrdSch]\n"
 	--
 	"\n\![*]\q[取消,ReturnMenu]\e"
 }
 Choice.CommandList
 {
-	
+	"\j[file://var/CommandList.lnk]"
 }
 Choice.PatternList
 {
-	
+	"\j[file://var/PatternList.lnk]"
+}
+Choice.PlatformSch
+{
+	"\j[file://var/PlatformSch.lnk]"
+}
+Choice.PowerBrdSch
+{
+	"\j[file://var/PowerBrdSch.lnk]"
 }
 OnLinker//快速访问
 {
