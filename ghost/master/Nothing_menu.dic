@@ -19,15 +19,35 @@ Choice.ReturnMenu
 	theMenu
 }
 
+OnReturnMenu
+{
+	theMenu
+}
+
 theMenu
 {
 	"\0\n\n\_q"
 	--
 	"\![*]\q[常用资料,MostlyRefered]\_l[90,-]\![*]\q[解析提示,OnJumpTest2]\n/
-	\![*]\q[助手陪聊,MyFunction]\_l[90,-]\![*]\q[检查时程,OnScheduleCheck]\n/
+	\![*]\q[功能测试,Password]\_l[90,-]\![*]\q[检查时程,OnScheduleCheck]\n/
 	\![*]\q[参数设置,Setting]\_l[90,-]\![*]\q[快速访问,OnLinker]\n"
 	--
 	"\n\![*]\q[取消,CANCEL]\e"
+}
+Choice.Password
+{
+	"\![open,inputbox,OnCheckPWD]\e"
+}
+OnCheckPWD
+{
+	if reference0 == 20160712
+	{
+		"\0\s[0]密码正确\w9\![raise,OnMyFunction]\e"
+	}
+	else
+	{
+		"\0\s[0]密码错误\w9\![raise,OnReturnMenu]\e"
+	}
 }
 Choice.MostlyRefered
 {

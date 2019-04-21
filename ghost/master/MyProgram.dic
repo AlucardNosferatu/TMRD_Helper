@@ -19,6 +19,11 @@ Choice.MyFunction
 "\![open,inputbox,OnTulingAPI,0,]\e"
 }
 
+OnMyFunction
+{
+"\![open,inputbox,OnTulingAPI,0,]\e"
+}
+
 OnTulingAPI
 {
 //_url="http://www.tuling123.com/openapi/api?key=2aceb1c3b3e94bd2bceebe031d8e23ca&info=";
