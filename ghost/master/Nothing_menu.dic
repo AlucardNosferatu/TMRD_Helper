@@ -26,6 +26,10 @@ OnReturnMenu
 
 theMenu
 {
+	//加入项目时程变量
+	schedule_month			= GetSMonth
+	schedule_day			= GetSDay
+	schedule_event			= GetSEvent
 	"\0\n\n\_q"
 	--
 	"\![*]\q[常用资料,MostlyRefered]\_l[90,-]\![*]\q[解析提示,OnJumpTest2]\n/
