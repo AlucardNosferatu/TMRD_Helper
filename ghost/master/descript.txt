@@ -1,5 +1,5 @@
 ﻿charset,UTF-8
-name,TMRD_Helper
+name,LostXmas
 type,ghost
 
 craftman,Scrooge2029
@@ -7,8 +7,8 @@ craftmanw,林昊波
 craftmanurl,https://github.com/AlucardNosferatu
 
 
-sakura.name,天马研发助手
-kero.name,研发助手的助手
+sakura.name,Scrooge
+kero.name,Carol
 
 sstp.allowunspecifiedsend,1
 
