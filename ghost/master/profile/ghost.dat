@@ -1,6 +1,8 @@
 Charset,UTF-8
 inputbox.left,737
+scriptbox.left,683
 Char0.center,1230
+scriptbox.top,364
 FirstBoot,booted
 shell,shell\master\
 Char1.center,989
