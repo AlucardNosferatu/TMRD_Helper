@@ -1,4 +1,4 @@
-﻿//**** 主選單的展開 ***********************************************************************
+//**** 主選單的展開 ***********************************************************************
 //---- 主選單的展開 ---------------------------------------------------------------
 OpenMenu
 {
@@ -53,9 +53,13 @@ Choice.MostlyRefered
 {
 	"\0\n/
 	\![*]\q[串口指令,CommandList]\_l[90,-]\![*]\q[分显图例,PatternList]\n/
-	\![*]\q[治具电路,PlatformSch]\_l[90,-]\![*]\q[电源电路,PowerBrdSch]\n"
+	\![*]\q[治具电路,PlatformSch]\_l[90,-]\![*]\q[电源电路,PowerBrdSch]\n/
+	\![*]\q[高速电路,HighSpeedSch]\n"
 	--
 	"\n\![*]\q[取消,ReturnMenu]\e"
+}
+Choice.CurrentMeterSch{
+	"\j[file://var/CurrentMeterSch.lnk]"
 }
 Choice.CommandList
 {
@@ -73,7 +77,11 @@ Choice.PowerBrdSch
 {
 	"\j[file://var/PowerBrdSch.lnk]"
 }
-OnLinker//快速访问
+
+Choice.HighSpeedSch
+{
+	"\j[file://var/HighSpeedSch.lnk]"
+}OnLinker//快速访问
 {
 	"\0\n/
 	\![*]\q[常用网址,OnURL]\_l[90,-]\![*]\q[常用路径,OnSharedDisk]\n"
