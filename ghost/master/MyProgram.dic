@@ -1,4 +1,4 @@
-﻿OnHelloWorld
+OnHelloWorld
 {
 _txt="\0\s[5]\b[0]\![set,balloontimeout,0]"
 _txt+="Hello World!\n";
@@ -18,12 +18,10 @@ Choice.MyFunction
 {
 "\![open,inputbox,OnTulingAPI,0,]\e"
 }
-
 OnMyFunction
 {
 "\![open,inputbox,OnTulingAPI,0,]\e"
 }
-
 OnTulingAPI
 {
 //_url="http://www.tuling123.com/openapi/api?key=2aceb1c3b3e94bd2bceebe031d8e23ca&info=";
@@ -34,39 +32,189 @@ _param="key=2aceb1c3b3e94bd2bceebe031d8e23ca&info="+"%(reference0)"+"&userid=105
 //"\0\s[6]連線中......\![execute,http-get,%(_url)]\e"
 "\0\s[6]連線中......\![execute,http-post,%(_url),--param=%(_param),--async=MyFunction,--file=reply.txt]\e"
 }
-
 OnExecuteHTTPComplete
 {
-
 _r = FOPEN("var/reply.txt","r")
 _echo = FREAD("var/reply.txt")
 _i = FCLOSE("var/reply.txt")
-
 _reply_index=STRSTR(_echo,":100000,",0)+16;
-
 _reply=SUBSTR(_echo,_reply_index,STRLEN(_echo)-_reply_index-2);
 --
 "\0\s[6]%(_reply)\e"
 }
 
+OnJumpTest2
+{
+"\0\s[0]\![set,choicetimeout,0]1.1.不良现象确认\n/
+1.2.视效检查\n/
+1.3.外观检查\n/
+是否出现物理损伤\n/
+\q[A.是,OnIssueHint]\n/
+\q[B.否,OnIssueHint2]\n/
+\_l[%(0),%(135)]\q [◇结束, ReturnMenu]\n/
+"
+}
+
+OnIssueHint
+{
+"\0\s[0]\![set,choicetimeout,0]2.1.损伤部件确认\n/
+确认结果：\n/
+\q[A.IC Crack,OnICCrack]\n/
+\q[B.Panel Crack,OnPanelCrack]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnJumpTest2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnICCrack
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.分析相关设计确认是否有机构干涉\n/
+3.2.IC 3PB测试\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnPanelCrack
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.分析相关设计确认是否有机构干涉\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint] \q[◇结束,ReturnMenu]\n/
+"
+}
+
+OnIssueHint2
+{
+"\0\s[0]\![set,choicetimeout,0]2.1.万用表量电源电压\n/
+2.2.万用表量对地电压\n/
+2.3.万用表量Bonding阻抗\n/
+2.2.万用表量MIPI阻抗\n/
+量测结果：\n/
+\q[A.大电流,OnCurrentAbnormal]\n/
+\q[B.电压异常,OnVoltageAbnormal]\n/
+\q[C.Bonding阻抗异常,OnBondingAbnormal]\n/
+\q[D.MIPI阻抗异常,OnMIPIAbnormal]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnJumpTest2] \q[◇结束,ReturnMenu]\n/
+"
+}
+
+OnCurrentAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.热点测试\n/
+量测结果：\n/
+\q[A.IC相关,OnCurrentICAbnormal]\n/
+\q[B.FPC相关,OnCurrentFPCAbnormal]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnCurrentICAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.IC SWAP\n/
+4.2.外观检测\n/
+4.3.测试\n/
+4.4.Delayer切片\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnCurrentAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnCurrentFPCAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.FPC SWAP\n/
+4.2.外观检测\n/
+4.3.开短路+阻抗测试\n/
+4.4.焊接测试\n/
+4.5.Delayer切片+元素分析\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnCurrentAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+
+OnVoltageAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.程序电压设定检查\n/
+检查结果：\n/
+\q[A.正常,OnVoltageAbnormal2]\n/
+\q[B.异常,OnVoltageProgramDebug]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnVoltageAbnormal2
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.器件取出检验\n/
+检查结果：\n/
+\q[A.正常,OnVoltageAbnormal3]\n/
+\q[B.异常,OnVoltagePartsReplace]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnVoltageAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnVoltageAbnormal3
+{
+"\0\s[0]\![set,choicetimeout,0]5.1.IC输出问题，请咨询IC厂商\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnVoltageAbnormal2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnVoltagePartsReplace
+{
+"\0\s[0]\![set,choicetimeout,0]5.1.更换元件，记入该型元件失效案例\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnVoltageAbnormal2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnVoltageProgramDebug
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.电压设定相关程序修改\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnVoltageAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+
+OnBondingAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.OM下镜检\n/
+检查结果：\n/
+\q[A.正常,OnBondingSWAP]\n/
+\q[B.异常,OnBondingIssue]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint2] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnBondingSWAP
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.SWAP测试\n/
+测试结果：\n/
+\q[A.IC移植后失效,OnBondingICIssue]\n/
+\q[B.FPC移植后失效,OnBondingFPCIssue]\n/
+\q[B.Panel移植后失效,OnBondingPanelIssue]\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnBondingAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnBondingICIssue
+{
+"\0\s[0]\![set,choicetimeout,0]5.1.IC Bump阻抗异常\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnBondingSWAP] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnBondingFPCIssue
+{
+"\0\s[0]\![set,choicetimeout,0]5.1.FPC金手指阻抗异常\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnBondingSWAP] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnBondingPanelIssue
+{
+"\0\s[0]\![set,choicetimeout,0]5.1.Panel压接区阻抗异常\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnBondingSWAP] \q[◇结束,ReturnMenu]\n/
+"
+}
+OnBondingIssue
+{
+"\0\s[0]\![set,choicetimeout,0]4.1.重Bond不良片，改善工艺\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnBondingAbnormal] \q[◇结束,ReturnMenu]\n/
+"
+}
+
+OnMIPIAbnormal
+{
+"\0\s[0]\![set,choicetimeout,0]3.1.MIPI走线检查\n/
+\_l[%(0),%(135)]\q[◇返回上一层,OnIssueHint2] \q[◇结束,ReturnMenu]\n/
+"
+}
 
 OnJumpTest
 {
 "\0\s[40]\b[2]\![set,choicetimeout,0]\q[◇7.你一生会真心爱几个人,Onjumptest7]\n"
 //1.0       \0\s[40]\b[2]\![set,choicetimeout,0]的效果是主人格作用域采用40号surface大对话框选项超时禁用,当对话框有选项时，禁用超时会使对话框处于静态页面，不会被人格主动对话打断
 }
-
-OnJumpTest2
-{
-"\0\s[40]\![set,choicetimeout,0]1.当他温柔地看着你，你会说：\n/
-\q[A.你的眼睛大又圆,Onjumptest7_2]\n/
-\q[B.你真好,Onjumptest7_3]\n/
-\q[C.你踩到我的脚了,Onjumptest7_3]\n/
-\q[D.你想什么呢？,Onjumptest7_2]\n/
-\_l[%(0),%(135)]\q[◇返回上一层,Ontestmenu] \q[◇结束,OnOpenMenu,1]\n/
-"
-}
-
 Onjumptest7
 {
 "\0\s[40]\![set,choicetimeout,0]你一生会真心爱几个人\n1.当他温柔地看着你，你会说：\n/
@@ -78,7 +226,6 @@ Onjumptest7
 "
 // 1.1   \n为换行，\n/为换行并将下行的代码认作和该代码行为同一行，注意这里有点绕，因为sakura script必须要求每行的脚本是完整的，否者会报错。而当我们希望按照阅读习惯来书写脚本又不希望其报错时，就可以用换行连接符/
 }
-
 Onjumptest7_2
 {
 "\0\s[40]\![set,choicetimeout,0]你一生会真心爱几个人\n2.当你想念他的笑和吻的时候，你会\n/
