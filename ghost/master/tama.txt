@@ -20,7 +20,7 @@ note.bold,0
 note.italic,0
 background.color,ffffff
 face,Arial
-window.x,345
-window.y,26
-window.width,816
-window.height,616
+window.x,123
+window.y,67
+window.width,818
+window.height,618

@@ -1,9 +1,11 @@
 Charset,UTF-8
 Char1.balloon.isleft,1
-balloon0.offset,147.-62
+balloon0.offset,69.-88
 Char0.centery,728
-balloon1.offset,136.68
+balloon1.offset,60.53
 Char0.balloon.isleft,1
-Char0.center,1179
+Char0.center,1114
 Char1.centery,728
-Char1.center,1233
+Char1.center,1185
+seriko.scaling.percent.x,50
+seriko.scaling.percent.y,50

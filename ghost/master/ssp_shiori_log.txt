@@ -1,10 +1,264 @@
 =====send=====
+(load library)
+=====send=====
+(function : load found)
+=====send=====
+(function : request found)
+=====send=====
+(function : unload found)
+=====send=====
+(getversion/loadex call)
+=====send=====
+(load call)
+=====send=====
+GET Version SHIORI/2.6
+Charset: UTF-8
+Sender: SSP
+
+
+=====send=====
+GET SHIORI/3.0
+Charset: UTF-8
+ID: version
+SecurityLevel: local
+Sender: SSP
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnInitialize
+Reference0: reload
+Reference1: 1
+
+
+=====send=====
+NOTIFY OwnerGhostName SHIORI/2.3
+Charset: UTF-8
+Sender: SSP
+Ghost: Scrooge
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnNotifyOSInfo
+Reference0: WindowsNT,6.1,Windows 7 SP1
+Reference1: Intel,2394,0.6.5.1,bfebfbff
+Reference2: 3615744,2096128
+Reference3: 1733
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: useorigin1
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: version
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: name
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: craftman
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: craftmanw
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnNotifyUserInfo
+Reference0: Microsoft
+Reference1: Microsoft
+Reference2: 
+Reference3: undef
+
+
+=====send=====
+NOTIFY OtherGhostName SHIORI/2.3
+Charset: UTF-8
+Sender: SSP
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: ghostpathlist
+Reference0: E:\LostXmas\cssp\ghost\
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: balloonpathlist
+Reference0: E:\LostXmas\cssp\balloon\
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: headlinepathlist
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: pluginpathlist
+Reference0: E:\LostXmas\cssp\plugin\
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: calendarskinpathlist
+Reference0: E:\LostXmas\cssp\calendar\skin\
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: calendarpluginpathlist
+Reference0: E:\LostXmas\cssp\calendar\plugin\
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: installedplugin
+Reference0: 共有変数プラグインABED14AF-F34B-4ff2-95B7-30ED37D5802D
+Reference1: 瑞士军刀8F8BCFB8-B27A-456f-9BA0-551484856DDC
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnNotifyDressupInfo
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: uniqueid
+Reference0: ssp_fmo_header_000027f4_004009c6
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: hwnd
+Reference0: 4196806657780
+Reference1: 95694944588932
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnDisplayChange
+Reference0: 32
+Reference1: 1366
+Reference2: 768
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: rateofusegraph
+Reference0: LostXmasScroogeCarol123897.435897boot
+Reference1: クローラ＆ロダクローラロダ112.564103install
+Reference2: SSPERSSPER100.000000install
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: sakura.recommendsites
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: sakura.portalsites
+
+
+=====send=====
+GET String SHIORI/2.5
+Charset: UTF-8
+Sender: SSP
+ID: kero.recommendsites
+
+
+=====send=====
 GET Sentence SHIORI/2.2
 Charset: UTF-8
 Sender: SSP
 SecurityLevel: local
 Event: OnSecondChange
-Reference0: 1
+Reference0: 28
+Reference1: 0
+Reference2: 0
+Reference3: 1
+Reference4: 0
+
+
+=====send=====
+GET Sentence SHIORI/2.2
+Charset: UTF-8
+Sender: SSP
+SecurityLevel: local
+Event: OnSecondChange
+Reference0: 28
 Reference1: 0
 Reference2: 0
 Reference3: 1

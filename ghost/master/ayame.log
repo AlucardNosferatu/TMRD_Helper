@@ -1,5 +1,5 @@
 // 文　リクエストログ
-// load 時刻 : 2019/04/22 22:54:18
+// load 時刻 : 2019/04/24 14:31:45
 
 // 辞書ファイル読み込み
 // - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\yaya_shiori3.dic
@@ -16,6 +16,7 @@
 // - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\Nothing_talks.dic
 // - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\Nothing_change.dic
 // - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\MyProgram.dic
+// - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\RPYParser.dic
 ...完了.
 
 // 辞書の構文解析と中間コード生成
@@ -23,9 +24,4 @@
 
 // 変数値の復元 - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\yaya_variable.cfg
 ...完了.
-
-// 変数値の保存 - E:\LostXmas\cssp\ghost\LostXmas\ghost\master\yaya_variable.cfg
-...完了.
-
-// unload 時刻 : 2019/04/22 22:58:34
 
