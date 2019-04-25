@@ -4,10 +4,13 @@
 
 Talk : nonoverlap
 {	
-	//OnCONVParse
 	OnRPYParse
 }
 
+OnAiTalk2 : nonoverlap
+{	
+	OnCONVParse
+}
 
 //連鎖對話
 //初次啟動后

@@ -156,13 +156,12 @@ OnKeyPress
 		//---- 開啟readme.txt
 		"\![open,readme]"
 	}
-	elseif reference0 == "c" {
+	elseif reference0 == "t" {
 		//---- 開始溝通
-		"\![open,communicatebox]"
+		MyFunction
 	}
 	elseif reference0 == "s" {
-		//---- 外表清單
-		"\![open,shellexplorer]"
+		OnAiTalk
 	}
 	elseif reference0 == "r" {
 		//---- 使用率
@@ -172,9 +171,8 @@ OnKeyPress
 		//---- 開菜單
 		OpenMenu
 	}
-	elseif reference0 == "t" {
-		//---- 開菜單
-		OnAiTalk
+	elseif reference0 == "c" {
+		OnAiTalk2
 	}
 }
 
