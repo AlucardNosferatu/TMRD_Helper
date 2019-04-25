@@ -1,5 +1,5 @@
-﻿runoob、    a "And I'm really sorry to hesr about your sister!" runooob、    a "And I'm really sorry to hear about your sister!" runoooooob 等
-   
-       a "And I'm really sorry to hear about your sister!" 
-    a "I'll help you through all your trauma and stuff, so don't kill yourself!"    
-    t "I already said I won't."
+﻿    Two childhood friends of each sixteen years, barely adults and yet barely still children, were slowly walking home.
+Two childhood friends of each sixteen years, barely adults and yet barely still children, were slowly walking home.
+	❤Two childhood friends of each sixteen years, barely adults and yet barely still children, were slowly walking home.❤
+    ❤While they may have been childhood friends, it was merely the fact that they had known each other for a while.❤
+    ❤Their families weren't especially close, and there was no sort of arrangement to celebrate together. They would soon part ways at the next crossing.❤
