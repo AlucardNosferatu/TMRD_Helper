@@ -18,3 +18,21 @@ while _script!=-1
 }
 _i = FCLOSE("var/conv_zh.txt");
 }
+
+OnRPYParse : sequential
+{
+_r = FOPEN("var/script.rpy","r");
+_script = FREAD("var/script.rpy");
+while _script!=-1
+{
+	"\0\s[0]%(_script)\n\n\w9\w9"
+	//_count=RE_GREP(_script,"runo+b");
+	_count=RE_GREP(_script,"\"*\"");
+	_script=RE_GETSTR;
+	--
+	"\1\s[10]%(_script)\n\n\w9\w9"
+	_script = FREAD("var/script.rpy");
+	--
+}
+_i = FCLOSE("var/script.rpy");
+}
