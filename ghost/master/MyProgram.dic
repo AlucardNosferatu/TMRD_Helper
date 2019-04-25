@@ -29,9 +29,9 @@ OnTulingAPI
 //_url+="&userid=105118";
 _url="http://www.tuling123.com/openapi/api?"
 _param="key=2aceb1c3b3e94bd2bceebe031d8e23ca&info="+"%(reference0)"+"&userid=105118";
-//"\0\s[6]連線中......\![execute,http-get,%(_url)]\e"
-"\0\s[6]連線中......\![execute,http-post,%(_url),--param=%(_param),--async=MyFunction,--file=reply.txt]\e"
+"\0\s[0]%(reference0)\![execute,http-post,%(_url),--param=%(_param),--async=MyFunction,--file=reply.txt]\e"
 }
+
 OnExecuteHTTPComplete
 {
 _r = FOPEN("var/reply.txt","r")
@@ -40,7 +40,7 @@ _i = FCLOSE("var/reply.txt")
 _reply_index=STRSTR(_echo,":100000,",0)+16;
 _reply=SUBSTR(_echo,_reply_index,STRLEN(_echo)-_reply_index-2);
 --
-"\0\s[6]%(_reply)\e"
+"\1\s[10]%(_reply)\e"
 }
 
 OnJumpTest2

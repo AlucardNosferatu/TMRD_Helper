@@ -158,7 +158,7 @@ OnKeyPress
 	}
 	elseif reference0 == "t" {
 		//---- 開始溝通
-		MyFunction
+		OnMyFunction
 	}
 	elseif reference0 == "s" {
 		OnAiTalk
