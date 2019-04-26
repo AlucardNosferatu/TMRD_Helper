@@ -1,9 +1,11 @@
 Charset,UTF-8
 Char1.balloon.isleft,0
-balloon0.offset,144.-47
+balloon0.offset,47.-47
+scriptbox.left,945
 Char0.centery,728
 balloon1.offset,131.43
 Char0.balloon.isleft,1
-Char0.center,585
+Char0.center,785
+scriptbox.top,314
 Char1.centery,728
-Char1.center,734
+Char1.center,465

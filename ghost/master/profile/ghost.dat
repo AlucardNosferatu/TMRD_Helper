@@ -1,6 +1,8 @@
 Charset,UTF-8
-Char0.center,585
+scriptbox.left,945
+Char0.center,785
+scriptbox.top,314
 FirstBoot,booted
-Char1.center,734
+Char1.center,465
 shiori.log,0
 DeveloperPalette.visible,1

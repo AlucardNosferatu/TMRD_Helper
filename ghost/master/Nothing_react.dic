@@ -165,7 +165,7 @@ OnKeyPress
 	}
 	elseif reference0 == "r" {
 		//---- 使用率
-		"\![open,rateofusegraph]"
+		OnDicChangeAndReload
 	}
 	elseif reference0 == "m" {
 		//---- 開菜單

@@ -1,4 +1,4 @@
-﻿OnCONVParse
+﻿﻿OnCONVParse
 {
 _r = FOPEN("var/conv_zh.txt","r");
 _script = FREAD("var/conv_zh.txt");
@@ -40,4 +40,41 @@ while _script!=-1
 	_script = FREAD("var/script.rpy");
 }
 _i = FCLOSE("var/script.rpy");
+}
+
+OnDicChangeAndReload : sequential
+{
+	_r = FOPEN("TestProgram.dic","r");
+	_w = FOPEN("AnotherProgram.dic","w");
+	_dic = FREAD("TestProgram.dic");
+	while _dic!="	//这里开始"
+	{
+		FWRITE("AnotherProgram",_dic);
+		_dic = FREAD("TestProgram.dic");
+	}
+	
+	FWRITE("AnotherProgram",_dic);//写入这里开始
+	_dic = FREAD("TestProgram.dic");//读入对话行
+	_dic_mod = SPLIT(_dic,"/");//去掉换行符
+	FWRITE("AnotherProgram","%(_dic_mod)呃/");//写入变更语句
+	
+	_dic = FREAD("TestProgram.dic");
+	while _dic!=-1
+	{
+		FWRITE("AnotherProgram",_dic);
+		_dic = FREAD("TestProgram.dic");
+	}
+	_i=FCLOSE("TestProgram.dic");
+	_i=FCLOSE("AnotherProgram.dic");
+
+	OnDicTested
+}
+
+OnDicTested
+{
+	"\0\s[0]/
+	//这里开始
+	Scrooge:/
+
+	"
 }

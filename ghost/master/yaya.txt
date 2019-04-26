@@ -27,7 +27,7 @@ dic, Nothing_talks.dic			//對話相關2
 dic, Nothing_change.dic			//切替反应相关
 
 dic, MyProgram.dic			//Scrooge练习用辞书文件
-dic, RPYParser.dic			//RenPy脚本处理测试用辞书
+dic, TestProgram.dic			//RenPy脚本处理+动态辞书功能测试
 //---- 實行日誌 -------------------------------------------------------------------------
 log, ayame.log			// 實行LOG記錄
 iolog, off
