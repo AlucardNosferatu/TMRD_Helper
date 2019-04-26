@@ -1,5 +1,82 @@
+﻿OnCONVParse
+{
+_r = FOPEN("var/conv_zh.txt","r");
+_script = FREAD("var/conv_zh.txt");
+while _script!=-1
+{
+	"\0\s[0]%(_script)\n\n\w9\w9"
+	_script = FREAD("var/conv_zh.txt");
+	--
+	"\1\s[10]%(_script)\n\n\w9\w9"
+	_script = FREAD("var/conv_zh.txt");
+	--
+	"\0\s[0]%(_script)\n\n\w9\w9"
+	_script = FREAD("var/conv_zh.txt");
+	--
+	"\1\s[10]%(_script)\n\n\w9\w9"
+	_script = FREAD("var/conv_zh.txt");
+}
+_i = FCLOSE("var/conv_zh.txt");
+}
+
+OnRPYParse : sequential
+{
+_r = FOPEN("var/script.rpy","r");
+_script = FREAD("var/script.rpy");
+while _script!="label start:"
+{
+	_script = FREAD("var/script.rpy");
+}
+while _script!=-1 
+{
+	
+	_count=RE_GREP(_script,"%(CHR(34))(.*?)%(CHR(34))");
+	_substr=RE_GETSTR();
+	if STRLEN(_substr[0])>=1
+	{
+		"\1\s[10]%(_substr[0])\n\n\w9\w9"
+		"\0\s[0]%(_substr[0])\n\n\w9\w9"
+	}
+	_script = FREAD("var/script.rpy");
+}
+_i = FCLOSE("var/script.rpy");
+}
+
+OnDicChangeAndReload : sequential
+{
+	_r = FOPEN("TestProgram.dic","r");
+	_w = FOPEN("AnotherProgram.dic","w");
+	_dic = FREAD("TestProgram.dic");
+	while _dic!="	//这里开始"
+	{
+		FWRITE("AnotherProgram.dic",_dic);
+		_dic = FREAD("TestProgram.dic");
+	}
+	
+	FWRITE("AnotherProgram.dic",_dic);//写入这里开始
+	_dic = FREAD("TestProgram.dic");//读入对话行
+	_dic_mod = SPLIT(_dic,"/");//去掉换行符
+	FWRITE("AnotherProgram.dic","%(_dic_mod)呃/");//写入变更语句
+	
+	_dic = FREAD("TestProgram.dic");
+	while _dic!=-1
+	{
+		FWRITE("AnotherProgram.dic",_dic);
+		_dic = FREAD("TestProgram.dic");
+	}
+	_i=FCLOSE("TestProgram.dic");
+	_i=FCLOSE("AnotherProgram.dic");
+	
+	//_i=FDEL("TestProgram.dic");
+	//_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
+	
+	OnDicTested
+}
+
+OnDicTested
+{
+	"\0\s[0]/
 	//这里开始
 	Scrooge:,呃/
-
 	"
 }

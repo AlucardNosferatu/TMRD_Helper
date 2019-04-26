@@ -56,7 +56,7 @@ OnDicChangeAndReload : sequential
 	FWRITE("AnotherProgram.dic",_dic);//写入这里开始
 	_dic = FREAD("TestProgram.dic");//读入对话行
 	_dic_mod = SPLIT(_dic,"/");//去掉换行符
-	FWRITE("AnotherProgram.dic","%(_dic_mod)呃/");//写入变更语句
+	FWRITE("AnotherProgram.dic","%(_dic_mod[0])呃/");//写入变更语句
 	
 	_dic = FREAD("TestProgram.dic");
 	while _dic!=-1
@@ -78,6 +78,5 @@ OnDicTested
 	"\0\s[0]/
 	//这里开始
 	Scrooge:/
-
 	"
 }
