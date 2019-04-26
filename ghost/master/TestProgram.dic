@@ -67,8 +67,8 @@ OnDicChangeAndReload : sequential
 	_i=FCLOSE("TestProgram.dic");
 	_i=FCLOSE("AnotherProgram.dic");
 	
-	//_i=FDEL("TestProgram.dic");
-	//_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
+	_i=FDEL("TestProgram.dic");
+	_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
 	
 	OnDicTested
 }
