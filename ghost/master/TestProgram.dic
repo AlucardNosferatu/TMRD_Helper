@@ -71,12 +71,13 @@ OnDicChangeAndReload : sequential
 	_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
 	
 	OnDicTested
-}
 
+}
 OnDicTested
 {
 	"\0\s[0]/
 	//这里开始
 	Scrooge:呃/
+	\![change,ghost,LostXmas]/
 	"
 }
