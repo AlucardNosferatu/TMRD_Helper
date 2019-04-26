@@ -29,11 +29,13 @@ while _script!="label start:"
 }
 while _script!=-1 
 {
-	_script=SPLIT(_script,"❤",3);
-	if STRLEN(_script[1])>=1 && _script[0]=="    "
+	
+	_count=RE_GREP(_script,"%(CHR(34))(.*?)%(CHR(34))");
+	_substr=RE_GETSTR();
+	if STRLEN(_substr[0])>=1
 	{
-		"\1\s[10]%(_script[1])\n\n\w9\w9"
-		"\0\s[0]%(_script[1])\n\n\w9\w9"
+		"\1\s[10]%(_substr[0])\n\n\w9\w9"
+		"\0\s[0]%(_substr[0])\n\n\w9\w9"
 	}
 	_script = FREAD("var/script.rpy");
 }

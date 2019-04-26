@@ -22,5 +22,5 @@ background.color,ffffff
 face,Arial
 window.x,123
 window.y,67
-window.width,820
-window.height,620
+window.width,821
+window.height,621
