@@ -1,4 +1,4 @@
-﻿﻿OnCONVParse
+﻿OnCONVParse
 {
 _r = FOPEN("var/conv_zh.txt","r");
 _script = FREAD("var/conv_zh.txt");
@@ -77,6 +77,6 @@ OnDicTested
 {
 	"\0\s[0]/
 	//这里开始
-	Scrooge:/
+	Scrooge:呃/
 	"
 }
