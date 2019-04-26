@@ -53,23 +53,22 @@ OnDicChangeAndReload : sequential
 		_dic = FREAD("TestProgram.dic");
 	}
 	
-	FWRITE("AnotherProgram",_dic);//写入这里开始
+	FWRITE("AnotherProgram.dic",_dic);//写入这里开始
 	_dic = FREAD("TestProgram.dic");//读入对话行
 	_dic_mod = SPLIT(_dic,"/");//去掉换行符
-	FWRITE("AnotherProgram","%(_dic_mod)呃/");//写入变更语句
+	FWRITE("AnotherProgram.dic","%(_dic_mod)呃/");//写入变更语句
 	
 	_dic = FREAD("TestProgram.dic");
 	while _dic!=-1
 	{
-		FWRITE("AnotherProgram",_dic);
+		FWRITE("AnotherProgram.dic",_dic);
 		_dic = FREAD("TestProgram.dic");
 	}
 	_i=FCLOSE("TestProgram.dic");
 	_i=FCLOSE("AnotherProgram.dic");
 	
-	_i=FDEL("TestProgram.dic");
-	_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
-	
+	//_i=FDEL("TestProgram.dic");
+	//_i=FRENAME("AnotherProgram.dic","TestProgram.dic");
 	
 	OnDicTested
 }
