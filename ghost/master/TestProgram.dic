@@ -1,4 +1,4 @@
-OnCONVParse
+﻿OnCONVParse
 {
 _r = FOPEN("var/conv_zh.txt","r");
 _script = FREAD("var/conv_zh.txt");
@@ -19,6 +19,30 @@ while _script!=-1
 _i = FCLOSE("var/conv_zh.txt");
 }
 
+OnNKCParse : sequential
+{
+_r = FOPEN("var/responses.txt","r");
+_res = FREAD("var/responses.txt");
+_signal = SUBSTR(_res,0,26);
+while _res!=-1 
+{
+	if _signal=="g_commu.MyData[%(CHR(34))1%(CHR(34))][%(CHR(34))txt%(CHR(34))]"
+	{
+		_content = SPLIT(_res,"g_commu.MyData[%(CHR(34))1%(CHR(34))][%(CHR(34))txt%(CHR(34))] = %(CHR(34))")
+		_content = SPLIT(_content[1],"%(CHR(34))%(CHR(59))");
+		"\1\s[10]%(_content[0])\n\n\w9\w9"
+	}
+	elseif _signal=="g_commu.MyData[%(CHR(34))2%(CHR(34))][%(CHR(34))txt%(CHR(34))]"
+	{
+		_content = SPLIT(_res,"g_commu.MyData[%(CHR(34))2%(CHR(34))][%(CHR(34))txt%(CHR(34))] = %(CHR(34))")
+		_content = SPLIT(_content[1],"%(CHR(34))%(CHR(59))");
+		"\0\s[0]%(_content[0])\n\n\w9\w9"
+	}
+	_res = FREAD("var/responses.txt");
+	_signal = SUBSTR(_res,0,26);
+}
+_i = FCLOSE("var/responses.txt");
+}
 OnRPYParse : sequential
 {
 _r = FOPEN("var/script.rpy","r");
@@ -77,7 +101,7 @@ OnDicTested
 {
 	"\0\s[0]/
 	//这里开始
-	Scrooge:呃呃呃呃呃呃/
+	Scrooge:呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃/
 	\![reload,shiori]/
 	"
 }

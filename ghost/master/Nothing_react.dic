@@ -63,10 +63,10 @@ MouseMoveKero
 		if stroke >= 96
 		{
 			stroke = 0
-			"\1\s[10]我沒有觸摸判定。\e"
-			"\1\s[10]我沒有觸摸判定。\w9\w9\n需要反應的話摸Scrooge就好了。\w9\w9/
-			\0\s[0]我也沒有。\e"
-			"\1\s[10]我沒有觸摸判定。\w9\w9\n觸摸反應的對話也沒有寫。\e"
+			"\1\s[10]你要找的Carol现在还不在这里。\e"
+			"\1\s[10]我还不是你想找的Carol。\w9\w9\n但这并不意味着她不存在。\w9\w9/
+			\0\s[0]所以你和“那个Carol”是什么关系？\e"
+			"\1\s[10]你在想她对吧。\w9\w9\n好好做你该做的事\w9\w9\n她有这么跟你说过吧？\e"
 		}
 }
 
@@ -124,9 +124,7 @@ MouseDoubleClickSakura
 //---- kero側的雙擊反應 -------------------------------------------------------------
 MouseDoubleClickKero
 {
-	"\1\s[10]我沒有雙擊反應，\w9需要反應去雙擊殼。\w9\w9/
-	\0\s[0]我也沒有。\e"
-	"\1\s[10]作者沒有寫我的雙擊反應。\e"
+
 }
 
 //———————鼠標拖拽開始（移動開始）—————————
@@ -156,24 +154,26 @@ OnKeyPress
 		//---- 開啟readme.txt
 		"\![open,readme]"
 	}
-	elseif reference0 == "t" {
-		//---- 開始溝通
+	elseif reference0 == "m" {
+		//M for Messages
 		OnMyFunction
 	}
 	elseif reference0 == "s" {
+		//S for Storys
 		OnAiTalk
 	}
 	elseif reference0 == "r" {
-		//---- 使用率
+		//R for Reloading Scripts
 		OnDicChangeAndReload
 	}
-	elseif reference0 == "m" {
-		//---- 開菜單
-		OpenMenu
+	elseif reference0 == "d" {
+		//D for Directive Chatting
+		OnNKCParse
 	}
-	elseif reference0 == "c" {
+	elseif reference0 == "g" {
+		//G for Generative Chatting
 		OnAiTalk2
-	}
+	}	
 }
 
 //---- SHELL更替開始 --------------------------------------------------------------------
