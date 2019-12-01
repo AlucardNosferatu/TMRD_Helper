@@ -1,1 +1,0 @@
-﻿charset,UTF-8id,mastername,mastertype,shellcraftman,shunjilanguocraftmanw,瞬祭藍果craftmanurl,www.shunlan.deseriko.use_self_alpha,1sakura.balloon.offsetx,0sakura.balloon.offsety,50sakura.balloon.alignment,nonekero.balloon.alignment,nonereadme,readme.txt
