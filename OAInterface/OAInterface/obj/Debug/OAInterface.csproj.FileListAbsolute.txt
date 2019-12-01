@@ -1,0 +1,9 @@
+E:\OAInterface\OAInterface\bin\Debug\OAInterface.exe.config
+E:\OAInterface\OAInterface\bin\Debug\OAInterface.exe
+E:\OAInterface\OAInterface\bin\Debug\OAInterface.pdb
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.csprojResolveAssemblyReference.cache
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.Form1.resources
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.Properties.Resources.resources
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.csproj.GenerateResource.Cache
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.exe
+E:\OAInterface\OAInterface\obj\Debug\OAInterface.pdb
