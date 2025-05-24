@@ -51,6 +51,10 @@ while _script!="label start:"
 {
 	_script = FREAD("var/script.rpy");
 }
+if ati>=341
+{
+	ati=1;
+}
 _ati=ati;
 while _ati>0
 {
