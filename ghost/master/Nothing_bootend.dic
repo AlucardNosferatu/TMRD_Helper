@@ -82,14 +82,30 @@ GetSEvent : sequential
 	_Event	= SPLIT(_Event,",");
 	_Event;
 }
-
+GetAITalkIndex : sequential
+{
+	_r	= FOPEN("var/AITalkIndex.txt","r");
+	_ati	= FREAD("var/AITalkIndex.txt");
+	_i	= FCLOSE("var/AITalkIndex.txt");
+	_ati	= SPLIT(_ati,",");
+	CVINT(_ati)
+	_ati;
+}
+SetAITalkIndex : void
+{
+	_ati=ati;
+	_w	= FOPEN("var/AITalkIndex.txt","w");
+	CVSTR(_ati)
+	FWRITE("var/AITalkIndex.txt","%(_ati)");
+	_i	= FCLOSE("var/AITalkIndex.txt");
+}
 OnBoot
 {
 	//加入项目时程变量
 	schedule_month			= GetSMonth
 	schedule_day			= GetSDay
 	schedule_event			= GetSEvent
-
+	ati				= GetAITalkIndex
 	GhostLastBoot			= CurrentTime; 
 	CurrentTime			= GETSECCOUNT();
 	lastTalk			= ""	//避免剛啓動就出0
@@ -157,7 +173,8 @@ OnBoot
 	}
 	else
 	{
-		"\0\s[0]今日项目时程安排：\n%(_timeslot)\e"
+		"\0\s[0]今日项目时程安排：\n%(_timeslot)\w9\w9\n\n/
+		\1\s[10]上次复习到：%(ati)\e"
 		//"\0\s[0]晚上0點到早上3點啟動發生的對話。\w9\w9\n\n/
 		//\1\s[10]因為沒有寫，\w9所以就當做已經說過了吧。\e"
 	}
@@ -254,7 +271,7 @@ GetTimeSlot3 : sequential
 	for i=0;i<_size;i++
 	{	
 		//"\0\s[0]%(schedule_month[i])\n%(schedule_day[i])\n%(schedule_event[i])\e"
-        	if month == schedule_month[i] && day == schedule_day[i]
+        		if month == schedule_month[i] && day == schedule_day[i]
 		{
 			schedule_event[i]
 			return
@@ -306,8 +323,9 @@ OnGhostChanged
 {
 	GhostLastBoot			= CurrentTime; 
 	CurrentTime			= GETSECCOUNT();
-	lastTalk			= ""	//避免剛啓動就出0
+	lastTalk				= ""	//避免剛啓動就出0
 	CHAIN.IDName			=""
+	ati				= GetAITalkIndex
 	if reference0 == "殼"
 	{
 		//---- 重新啟動完成

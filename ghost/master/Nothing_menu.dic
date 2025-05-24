@@ -221,7 +221,7 @@ Choice.COMMUNICATEOPEN
 Choice.TALKINTERVAL
 {
 	"\0\s[0]對話頻率調整。\n\n/
-	\![*]\q[健談（1分鐘間隔）,TALKMAX]\n/
+	\![*]\q[健談（半分鐘間隔）,TALKMAX]\n/
 	\![*]\q[普通（5分鐘間隔）,TALKNORMAL]\n/
 	\![*]\q[安静（10分鐘間隔）,TALKPOOR]\n/
 	\![*]\q[沉默（0分鐘間隔）,TALKNONE]\e"
@@ -229,9 +229,9 @@ Choice.TALKINTERVAL
 
 Choice.TALKMAX
 {
-	//---- 密集的對話(1分間隔)
-	aitalkinterval = 60
-	"\0\s[0]將對話頻率調整為1分鐘間隔。\w9\w9\n\n/
+	//---- 密集的對話(半分間隔)
+	aitalkinterval = 30
+	"\0\s[0]將對話頻率調整為半分鐘間隔。\w9\w9\n\n/
 	\1\s[10]沒有對話的話，\w9就算調整到那麼頻繁也沒有意義。\w9\w9\n\n/
 	\0\s[0]這是功能。\e"
 

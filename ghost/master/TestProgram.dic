@@ -1,4 +1,4 @@
-﻿OnCONVParse
+OnCONVParse
 {
 _r = FOPEN("var/conv_zh.txt","r");
 _script = FREAD("var/conv_zh.txt");
@@ -51,9 +51,16 @@ while _script!="label start:"
 {
 	_script = FREAD("var/script.rpy");
 }
-while _script!=-1 
+_ati=ati;
+while _ati>0
 {
-	
+	_script = FREAD("var/script.rpy");
+	_ati=_ati-1;
+}
+ati=ati+1;
+SetAITalkIndex
+while _script!=-1
+{
 	_count=RE_GREP(_script,"%(CHR(34))(.*?)%(CHR(34))");
 	_substr=RE_GETSTR();
 	if STRLEN(_substr[0])>=1
@@ -101,7 +108,7 @@ OnDicTested
 {
 	"\0\s[0]/
 	//这里开始
-	Scrooge:呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃/
+	Scrooge:判断解系是否有效=###任一解系不可能通过除它自身以外的解系组合得到###呃呃/
 	\![reload,shiori]/
 	"
 }
