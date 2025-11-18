@@ -43,38 +43,54 @@ while _res!=-1
 }
 _i = FCLOSE("var/responses.txt");
 }
+
 OnRPYParse : sequential
 {
-_r = FOPEN("var/script.rpy","r");
-_script = FREAD("var/script.rpy");
-while _script!="label start:"
-{
-	_script = FREAD("var/script.rpy");
-}
-if ati>=341
-{
-	ati=1;
-}
-_ati=ati;
-while _ati>0
-{
-	_script = FREAD("var/script.rpy");
-	_ati=_ati-1;
-}
-ati=ati+1;
-SetAITalkIndex
-while _script!=-1
-{
-	_count=RE_GREP(_script,"%(CHR(34))(.*?)%(CHR(34))");
-	_substr=RE_GETSTR();
-	if STRLEN(_substr[0])>=1
-	{
-		"\1\s[10]%(_substr[0])\n\n\w9\w9"
-		"\0\s[0]%(_substr[0])\n\n\w9\w9"
-	}
-	_script = FREAD("var/script.rpy");
-}
-_i = FCLOSE("var/script.rpy");
+    // 先统计文件总行数
+    _r = FOPEN("var/script.rpy","r");
+    _totalLines = 0;
+    _tempScript = FREAD("var/script.rpy");
+    while _tempScript != -1
+    {
+        _totalLines = _totalLines + 1;
+        _tempScript = FREAD("var/script.rpy");
+    }
+    FCLOSE("var/script.rpy");
+    
+    // 重新打开文件进行实际读取
+    _r = FOPEN("var/script.rpy","r");
+    _script = FREAD("var/script.rpy");
+    while _script != "label start:"
+    {
+        _script = FREAD("var/script.rpy");
+    }
+    
+    // 使用动态获取的总行数
+    if ati >= _totalLines
+    {
+        ati = 1;
+    }
+    _ati = ati;
+    while _ati > 0
+    {
+        _script = FREAD("var/script.rpy");
+        _ati = _ati - 1;
+    }
+    ati = ati + 1;
+    SetAITalkIndex
+    
+    while _script != -1
+    {
+        _count = RE_GREP(_script, "%(CHR(34))(.*?)%(CHR(34))");
+        _substr = RE_GETSTR();
+        if STRLEN(_substr[0]) >= 1
+        {
+            "\1\s[10]%(_substr[0])\n\n\w9\w9"
+            "\0\s[0]%(_substr[0])\n\n\w9\w9"
+        }
+        _script = FREAD("var/script.rpy");
+    }
+    _i = FCLOSE("var/script.rpy");
 }
 
 OnDicChangeAndReload : sequential
@@ -108,6 +124,7 @@ OnDicChangeAndReload : sequential
 	OnDicTested
 
 }
+
 OnDicTested
 {
 	"\0\s[0]/
